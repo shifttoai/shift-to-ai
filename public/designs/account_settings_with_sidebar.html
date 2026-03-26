@@ -1,293 +1,360 @@
 <!DOCTYPE html>
 
-<html class="dark" lang="en"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Account Settings - shiftToAI</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Manrope:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script id="tailwind-config">
-      tailwind.config = {
-        darkMode: "class",
-        theme: {
-          extend: {
-            colors: {
-              "tertiary-container": "#00ffab",
-              "surface-container-highest": "#22262f",
-              "outline-variant": "#45484f",
-              "on-primary-container": "#005359",
-              "on-primary-fixed-variant": "#005e64",
-              "surface-container-high": "#1c2028",
-              "tertiary-fixed": "#00ffab",
-              "secondary": "#ac89ff",
-              "on-secondary-fixed-variant": "#6300e2",
-              "surface-variant": "#22262f",
-              "on-secondary": "#290067",
-              "on-error": "#490006",
-              "error": "#ff716c",
-              "surface-bright": "#282c36",
-              "on-primary-fixed": "#003f43",
-              "tertiary": "#afffd1",
-              "surface-container-low": "#10131a",
-              "secondary-fixed-dim": "#ceb9ff",
-              "on-error-container": "#ffa8a3",
-              "on-surface": "#ecedf6",
-              "surface": "#0b0e14",
-              "on-secondary-container": "#f8f1ff",
-              "tertiary-dim": "#00efa0",
-              "background": "#0b0e14",
-              "error-container": "#9f0519",
-              "error-dim": "#d7383b",
-              "surface-tint": "#8ff5ff",
-              "inverse-primary": "#006a71",
-              "primary-dim": "#00deec",
-              "on-tertiary": "#006642",
-              "surface-container-lowest": "#000000",
-              "outline": "#73757d",
-              "tertiary-fixed-dim": "#00efa0",
-              "on-primary": "#005d63",
-              "primary": "#8ff5ff",
-              "on-tertiary-fixed": "#00472d",
-              "on-background": "#ecedf6",
-              "inverse-on-surface": "#52555c",
-              "secondary-dim": "#874cff",
-              "surface-dim": "#0b0e14",
-              "on-tertiary-container": "#005c3b",
-              "secondary-container": "#7000ff",
-              "on-secondary-fixed": "#41009a",
-              "surface-container": "#161a21",
-              "inverse-surface": "#f9f9ff",
-              "secondary-fixed": "#dac9ff",
-              "primary-fixed-dim": "#00deec",
-              "primary-fixed": "#00eefc",
-              "primary-container": "#00eefc",
-              "on-surface-variant": "#a9abb3",
-              "on-tertiary-fixed-variant": "#006742"
-            },
-            fontFamily: {
-              "headline": ["Space Grotesk"],
-              "body": ["Manrope"],
-              "label": ["Manrope"]
-            },
-            borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+<html class="dark" lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Account Settings - shiftToAI</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Manrope:wght@300;400;500;600;700&amp;display=swap"
+    rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+    rel="stylesheet" />
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "tertiary-container": "#00ffab",
+            "surface-container-highest": "#22262f",
+            "outline-variant": "#45484f",
+            "on-primary-container": "#005359",
+            "on-primary-fixed-variant": "#005e64",
+            "surface-container-high": "#1c2028",
+            "tertiary-fixed": "#00ffab",
+            "secondary": "#ac89ff",
+            "on-secondary-fixed-variant": "#6300e2",
+            "surface-variant": "#22262f",
+            "on-secondary": "#290067",
+            "on-error": "#490006",
+            "error": "#ff716c",
+            "surface-bright": "#282c36",
+            "on-primary-fixed": "#003f43",
+            "tertiary": "#afffd1",
+            "surface-container-low": "#10131a",
+            "secondary-fixed-dim": "#ceb9ff",
+            "on-error-container": "#ffa8a3",
+            "on-surface": "#ecedf6",
+            "surface": "#0b0e14",
+            "on-secondary-container": "#f8f1ff",
+            "tertiary-dim": "#00efa0",
+            "background": "#0b0e14",
+            "error-container": "#9f0519",
+            "error-dim": "#d7383b",
+            "surface-tint": "#8ff5ff",
+            "inverse-primary": "#006a71",
+            "primary-dim": "#00deec",
+            "on-tertiary": "#006642",
+            "surface-container-lowest": "#000000",
+            "outline": "#73757d",
+            "tertiary-fixed-dim": "#00efa0",
+            "on-primary": "#005d63",
+            "primary": "#8ff5ff",
+            "on-tertiary-fixed": "#00472d",
+            "on-background": "#ecedf6",
+            "inverse-on-surface": "#52555c",
+            "secondary-dim": "#874cff",
+            "surface-dim": "#0b0e14",
+            "on-tertiary-container": "#005c3b",
+            "secondary-container": "#7000ff",
+            "on-secondary-fixed": "#41009a",
+            "surface-container": "#161a21",
+            "inverse-surface": "#f9f9ff",
+            "secondary-fixed": "#dac9ff",
+            "primary-fixed-dim": "#00deec",
+            "primary-fixed": "#00eefc",
+            "primary-container": "#00eefc",
+            "on-surface-variant": "#a9abb3",
+            "on-tertiary-fixed-variant": "#006742"
           },
+          fontFamily: {
+            "headline": ["Space Grotesk"],
+            "body": ["Manrope"],
+            "label": ["Manrope"]
+          },
+          borderRadius: { "DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px" },
         },
-      }
-    </script>
-<style>
-        .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-        }
-        body {
-            background-color: #0b0e14;
-            color: #ecedf6;
-            font-family: 'Manrope', sans-serif;
-        }
-        .glass-panel {
-            background: rgba(34, 38, 47, 0.4);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(69, 72, 79, 0.15);
-        }
-        .bg-glow-cyan {
-            background: radial-gradient(circle at center, rgba(0, 238, 252, 0.08) 0%, transparent 70%);
-        }
-    </style>
+      },
+    }
+  </script>
+  <style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+
+    body {
+      background-color: #0b0e14;
+      color: #ecedf6;
+      font-family: 'Manrope', sans-serif;
+    }
+
+    .glass-panel {
+      background: rgba(34, 38, 47, 0.4);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(69, 72, 79, 0.15);
+    }
+
+    .bg-glow-cyan {
+      background: radial-gradient(circle at center, rgba(0, 238, 252, 0.08) 0%, transparent 70%);
+    }
+  </style>
 </head>
+
 <body class="min-h-screen selection:bg-primary/30">
-<nav class="fixed top-0 w-full z-50 bg-slate-900/40 backdrop-blur-xl shadow-[0_8px_32px_0_rgba(0,240,255,0.06)]">
-<div class="flex justify-between items-center px-8 py-4 max-w-7xl mx-auto">
-<div class="text-2xl font-bold bg-gradient-to-r from-cyan-400 to-cyan-200 bg-clip-text text-transparent font-['Space_Grotesk'] tracking-tight">shiftToAI</div>
-<div class="hidden md:flex items-center gap-8">
-<a class="text-slate-300 hover:text-cyan-200 transition-colors font-['Space_Grotesk'] tracking-tight hover:scale-105 transition-transform duration-200" href="#">Home</a>
-<a class="text-slate-300 hover:text-cyan-200 transition-colors font-['Space_Grotesk'] tracking-tight hover:scale-105 transition-transform duration-200" href="#">Dashboard</a>
-<a class="text-slate-300 hover:text-cyan-200 transition-colors font-['Space_Grotesk'] tracking-tight hover:scale-105 transition-transform duration-200" href="#">Services</a>
-<a class="text-slate-300 hover:text-cyan-200 transition-colors font-['Space_Grotesk'] tracking-tight hover:scale-105 transition-transform duration-200" href="#">Demo</a>
-<a class="text-slate-300 hover:text-cyan-200 transition-colors font-['Space_Grotesk'] tracking-tight hover:scale-105 transition-transform duration-200" href="#">Contact</a>
-</div>
-<div class="flex items-center gap-4">
-<button class="material-symbols-outlined text-cyan-400 hover:scale-105 transition-transform">account_circle</button>
-</div>
-</div>
-</nav>
-<div class="flex min-h-screen pt-20">
-<!-- Sidebar Navigation from SCREEN_21 -->
-<aside class="hidden md:flex flex-col w-64 bg-surface-container-low border-r border-outline-variant/10 p-6 fixed h-[calc(100vh-5rem)]">
-<div class="flex flex-col gap-2">
-<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container hover:text-on-surface rounded-xl transition-all group" href="#">
-<span class="material-symbols-outlined group-hover:scale-110 transition-transform">dashboard</span>
-<span>Dashboard</span>
-</a>
-<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container hover:text-on-surface rounded-xl transition-all group" href="#">
-<span class="material-symbols-outlined group-hover:scale-110 transition-transform">payments</span>
-<span>Billing</span>
-</a>
-<a class="flex items-center gap-3 px-4 py-3 bg-primary/10 text-primary rounded-xl font-bold transition-all group" href="#">
-<span class="material-symbols-outlined group-hover:scale-110 transition-transform">settings</span>
-<span>Settings</span>
-</a>
-<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container hover:text-on-surface rounded-xl transition-all group" href="#">
-<span class="material-symbols-outlined group-hover:scale-110 transition-transform">support_agent</span>
-<span>AI Agents</span>
-</a>
-</div>
-<div class="mt-auto p-4 glass-panel rounded-2xl border border-outline-variant/10">
-<p class="text-[10px] uppercase tracking-widest text-on-surface-variant mb-2">Workspace</p>
-<div class="flex items-center gap-3">
-<div class="w-8 h-8 rounded-lg bg-secondary flex items-center justify-center text-on-secondary font-bold">RE</div>
-<div class="overflow-hidden">
-<p class="text-sm font-bold truncate">Lumina Systems</p>
-<p class="text-xs text-on-surface-variant">Voice Tech</p>
-</div>
-</div>
-</div>
-</aside>
-<!-- Main Content Area -->
-<main class="flex-1 md:ml-64 p-8 lg:p-12 relative overflow-hidden">
-<div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[500px] bg-glow-cyan pointer-events-none"></div>
-<header class="mb-12 relative z-10">
-<h1 class="text-4xl md:text-5xl font-headline font-bold tracking-tight mb-2">Account Settings</h1>
-<p class="text-on-surface-variant max-w-2xl">Manage your AI identity, security protocols, and integration endpoints in your sonic workspace.</p>
-</header>
-<div class="grid grid-cols-1 lg:grid-cols-[280px_1fr] gap-8 items-start relative z-10">
-<aside class="glass-panel p-4 rounded-lg flex flex-col gap-2">
-<button class="flex items-center gap-3 px-4 py-3 rounded-full bg-primary-container text-on-primary-container font-medium transition-all">
-<span class="material-symbols-outlined" data-icon="person">person</span>
-                        Profile
+  <nav class="fixed top-0 w-full z-50 bg-slate-900/40 backdrop-blur-xl shadow-[0_8px_32px_0_rgba(0,240,255,0.06)]">
+    <div class="flex justify-between items-center px-8 py-4 max-w-7xl mx-auto">
+      <div
+        class="text-2xl font-bold bg-gradient-to-r from-cyan-400 to-cyan-200 bg-clip-text text-transparent font-['Space_Grotesk'] tracking-tight">
+        shiftToAI</div>
+      <div class="hidden md:flex items-center gap-8">
+        <a class="text-slate-300 hover:text-cyan-200 transition-colors font-['Space_Grotesk'] tracking-tight hover:scale-105 transition-transform duration-200"
+          href="#">Home</a>
+        <a class="text-slate-300 hover:text-cyan-200 transition-colors font-['Space_Grotesk'] tracking-tight hover:scale-105 transition-transform duration-200"
+          href="#">Dashboard</a>
+        <a class="text-slate-300 hover:text-cyan-200 transition-colors font-['Space_Grotesk'] tracking-tight hover:scale-105 transition-transform duration-200"
+          href="#">Services</a>
+        <a class="text-slate-300 hover:text-cyan-200 transition-colors font-['Space_Grotesk'] tracking-tight hover:scale-105 transition-transform duration-200"
+          href="#">Demo</a>
+        <a class="text-slate-300 hover:text-cyan-200 transition-colors font-['Space_Grotesk'] tracking-tight hover:scale-105 transition-transform duration-200"
+          href="#">Contact</a>
+      </div>
+      <div class="flex items-center gap-4">
+        <button
+          class="material-symbols-outlined text-cyan-400 hover:scale-105 transition-transform">account_circle</button>
+      </div>
+    </div>
+  </nav>
+  <div class="flex min-h-screen pt-20">
+    <!-- Sidebar Navigation from SCREEN_21 -->
+    <aside
+      class="hidden md:flex flex-col w-64 bg-surface-container-low border-r border-outline-variant/10 p-6 fixed h-[calc(100vh-5rem)]">
+      <div class="flex flex-col gap-2">
+        <a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container hover:text-on-surface rounded-xl transition-all group"
+          href="#">
+          <span class="material-symbols-outlined group-hover:scale-110 transition-transform">dashboard</span>
+          <span>Dashboard</span>
+        </a>
+        <a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container hover:text-on-surface rounded-xl transition-all group"
+          href="#">
+          <span class="material-symbols-outlined group-hover:scale-110 transition-transform">payments</span>
+          <span>Billing</span>
+        </a>
+        <a class="flex items-center gap-3 px-4 py-3 bg-primary/10 text-primary rounded-xl font-bold transition-all group"
+          href="#">
+          <span class="material-symbols-outlined group-hover:scale-110 transition-transform">settings</span>
+          <span>Settings</span>
+        </a>
+        <a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container hover:text-on-surface rounded-xl transition-all group"
+          href="#">
+          <span class="material-symbols-outlined group-hover:scale-110 transition-transform">support_agent</span>
+          <span>AI Agents</span>
+        </a>
+      </div>
+      <div class="mt-auto p-4 glass-panel rounded-2xl border border-outline-variant/10">
+        <p class="text-[10px] uppercase tracking-widest text-on-surface-variant mb-2">Workspace</p>
+        <div class="flex items-center gap-3">
+          <div class="w-8 h-8 rounded-lg bg-secondary flex items-center justify-center text-on-secondary font-bold">RE
+          </div>
+          <div class="overflow-hidden">
+            <p class="text-sm font-bold truncate">Lumina Systems</p>
+            <p class="text-xs text-on-surface-variant">Voice Tech</p>
+          </div>
+        </div>
+      </div>
+    </aside>
+    <!-- Main Content Area -->
+    <main class="flex-1 md:ml-64 p-8 lg:p-12 relative overflow-hidden">
+      <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[500px] bg-glow-cyan pointer-events-none"></div>
+      <header class="mb-12 relative z-10">
+        <h1 class="text-4xl md:text-5xl font-headline font-bold tracking-tight mb-2">Account Settings</h1>
+        <p class="text-on-surface-variant max-w-2xl">Manage your AI identity, security protocols, and integration
+          endpoints in your sonic workspace.</p>
+      </header>
+      <div class="grid grid-cols-1 lg:grid-cols-[280px_1fr] gap-8 items-start relative z-10">
+        <aside class="glass-panel p-4 rounded-lg flex flex-col gap-2">
+          <button
+            class="flex items-center gap-3 px-4 py-3 rounded-full bg-primary-container text-on-primary-container font-medium transition-all">
+            <span class="material-symbols-outlined" data-icon="person">person</span>
+            Profile
+          </button>
+          <button
+            class="flex items-center gap-3 px-4 py-3 rounded-full text-on-surface-variant hover:bg-surface-container-high transition-all">
+            <span class="material-symbols-outlined" data-icon="security">security</span>
+            Security
+          </button>
+          <button
+            class="flex items-center gap-3 px-4 py-3 rounded-full text-on-surface-variant hover:bg-surface-container-high transition-all">
+            <span class="material-symbols-outlined" data-icon="language">language</span>
+            Localization
+          </button>
+          <button
+            class="flex items-center gap-3 px-4 py-3 rounded-full text-on-surface-variant hover:bg-surface-container-high transition-all">
+            <span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+            Notifications
+          </button>
+          <button
+            class="flex items-center gap-3 px-4 py-3 rounded-full text-on-surface-variant hover:bg-surface-container-high transition-all">
+            <span class="material-symbols-outlined" data-icon="hub">hub</span>
+            Integrations
+          </button>
+        </aside>
+        <div class="flex flex-col gap-8">
+          <section class="glass-panel p-8 rounded-lg">
+            <div class="flex justify-between items-center mb-8">
+              <h2 class="text-2xl font-headline font-semibold">Profile Information</h2>
+              <button
+                class="px-6 py-2 rounded-full bg-gradient-to-r from-primary to-primary-container text-on-primary-container font-bold text-sm hover:scale-105 transition-transform shadow-lg shadow-primary/10">Save
+                Changes</button>
+            </div>
+            <div class="flex flex-col md:flex-row gap-10 items-start">
+              <div class="relative group">
+                <div
+                  class="w-32 h-32 rounded-full overflow-hidden border-2 border-primary/20 ring-4 ring-primary-dim/5">
+                  <img alt="Profile" class="w-full h-full object-cover"
+                    data-alt="professional headshot of a creative technologist with minimalist background and cool cyan studio lighting"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuCIdipKWyoM8aUqs1Vn6LPDVKpGVu4MekKtxfuOCPOYX8pK9G0xq-V3Cxb34gxefWoGoBS_YDL5gIUg-USCQDhoTEAdNWfs0uq-vhClomqNLXypjCpJNQgFOuS7rR7OutfAAG3XVR8PDIhV8GCawrRljkiIfOzEwhd0x7RjBKVi99tvk1dZwxOhIPJXYfVHhR0IC3fssrMpJifKEMjJ4fhmLggVLBk7zhHoIJX5RzeegFzOefZyGvP8JdMluwUcgoUO_rgKP7OFir65" />
+                </div>
+                <button
+                  class="absolute bottom-0 right-0 w-10 h-10 rounded-full bg-primary text-on-primary flex items-center justify-center shadow-lg border-2 border-surface-container group-hover:scale-110 transition-transform">
+                  <span class="material-symbols-outlined text-sm" data-icon="edit">edit</span>
+                </button>
+              </div>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6 flex-1 w-full">
+                <div class="flex flex-col gap-2">
+                  <label class="text-sm font-medium text-on-surface-variant px-1">First Name</label>
+                  <input
+                    class="bg-surface-container-lowest border border-outline-variant/20 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary transition-all"
+                    type="text" value="Elena" />
+                </div>
+                <div class="flex flex-col gap-2">
+                  <label class="text-sm font-medium text-on-surface-variant px-1">Last Name</label>
+                  <input
+                    class="bg-surface-container-lowest border border-outline-variant/20 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary transition-all"
+                    type="text" value="Vance" />
+                </div>
+                <div class="flex flex-col gap-2">
+                  <label class="text-sm font-medium text-on-surface-variant px-1">Company</label>
+                  <input
+                    class="bg-surface-container-lowest border border-outline-variant/20 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary transition-all"
+                    type="text" value="Lumina Voice Systems" />
+                </div>
+                <div class="flex flex-col gap-2">
+                  <label class="text-sm font-medium text-on-surface-variant px-1">Industry</label>
+                  <select
+                    class="bg-surface-container-lowest border border-outline-variant/20 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary transition-all appearance-none">
+                    <option selected="">Voice Technology</option>
+                    <option>Artificial Intelligence</option>
+                    <option>Fintech</option>
+                    <option>Enterprise Software</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </section>
+          <section class="glass-panel p-8 rounded-lg">
+            <h2 class="text-2xl font-headline font-semibold mb-8">Security Credentials</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div class="flex flex-col gap-4">
+                <div class="flex flex-col gap-2">
+                  <label class="text-sm font-medium text-on-surface-variant px-1">Current Password</label>
+                  <input
+                    class="bg-surface-container-lowest border border-outline-variant/20 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary transition-all"
+                    placeholder="••••••••••••" type="password" />
+                </div>
+                <div class="flex flex-col gap-2">
+                  <label class="text-sm font-medium text-on-surface-variant px-1">New Password</label>
+                  <input
+                    class="bg-surface-container-lowest border border-outline-variant/20 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary transition-all"
+                    placeholder="Enter new password" type="password" />
+                </div>
+                <button
+                  class="mt-2 w-fit px-6 py-2 rounded-full border border-outline-variant/20 text-on-surface font-medium text-sm hover:bg-surface-container-high transition-all">Update
+                  Password</button>
+              </div>
+              <div class="bg-surface-container-low p-6 rounded-lg border border-primary/10">
+                <div class="flex items-center gap-3 mb-4 text-primary">
+                  <span class="material-symbols-outlined" data-icon="shield_lock">shield_lock</span>
+                  <h3 class="font-bold">Two-Factor Auth</h3>
+                </div>
+                <p class="text-sm text-on-surface-variant mb-6 leading-relaxed">Add an extra layer of security to your
+                  account by requiring a code from your mobile device to log in.</p>
+                <button
+                  class="w-full py-3 rounded-lg bg-surface-container-highest border border-primary/20 text-primary text-sm font-bold hover:bg-primary hover:text-on-primary transition-all">Enable
+                  2FA</button>
+              </div>
+            </div>
+          </section>
+          <section class="glass-panel p-8 rounded-lg">
+            <div class="flex justify-between items-start mb-8">
+              <div>
+                <h2 class="text-2xl font-headline font-semibold mb-2">Integrations &amp; API</h2>
+                <p class="text-on-surface-variant text-sm">Connect shiftToAI to your external infrastructure and
+                  workflows.</p>
+              </div>
+              <span
+                class="bg-tertiary-container/10 text-tertiary text-[10px] uppercase tracking-widest font-bold px-3 py-1 rounded-full border border-tertiary/20">Enterprise
+                Ready</span>
+            </div>
+            <div class="space-y-6">
+              <div class="bg-surface-container-low p-6 rounded-lg">
+                <label class="text-sm font-bold text-on-surface mb-4 block">Webhook URL</label>
+                <div class="flex gap-2">
+                  <input
+                    class="flex-1 bg-surface-container-lowest border border-outline-variant/10 rounded-lg px-4 py-3 text-sm font-mono text-primary-dim focus:outline-none"
+                    readonly="" type="text" value="https://api.lumina.io/webhooks/v1/voice-event" />
+                  <button class="px-4 bg-surface-container-high rounded-lg hover:text-primary transition-colors">
+                    <span class="material-symbols-outlined" data-icon="content_copy">content_copy</span>
+                  </button>
+                </div>
+                <p class="text-[11px] text-on-surface-variant mt-3">Notifications will be sent to this URL when voice
+                  processing tasks are complete.</p>
+              </div>
+              <div class="bg-surface-container-low p-6 rounded-lg">
+                <div class="flex justify-between items-center mb-4">
+                  <label class="text-sm font-bold text-on-surface">Production API Key</label>
+                  <button class="text-xs text-error-dim font-bold hover:underline">Revoke Key</button>
+                </div>
+                <div class="flex gap-2">
+                  <div class="relative flex-1">
+                    <input
+                      class="w-full bg-surface-container-lowest border border-outline-variant/10 rounded-lg px-4 py-3 text-sm font-mono text-on-surface-variant focus:outline-none"
+                      readonly="" type="password" value="sk_live_xxxxxxxxxxxxxxxxxxxx  →  YOUR_STRIPE_API_KEY_HERE" />
+                    <button
+                      class="absolute right-3 top-1/2 -translate-y-1/2 text-on-surface-variant hover:text-on-surface">
+                      <span class="material-symbols-outlined text-lg" data-icon="visibility">visibility</span>
                     </button>
-<button class="flex items-center gap-3 px-4 py-3 rounded-full text-on-surface-variant hover:bg-surface-container-high transition-all">
-<span class="material-symbols-outlined" data-icon="security">security</span>
-                        Security
-                    </button>
-<button class="flex items-center gap-3 px-4 py-3 rounded-full text-on-surface-variant hover:bg-surface-container-high transition-all">
-<span class="material-symbols-outlined" data-icon="language">language</span>
-                        Localization
-                    </button>
-<button class="flex items-center gap-3 px-4 py-3 rounded-full text-on-surface-variant hover:bg-surface-container-high transition-all">
-<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
-                        Notifications
-                    </button>
-<button class="flex items-center gap-3 px-4 py-3 rounded-full text-on-surface-variant hover:bg-surface-container-high transition-all">
-<span class="material-symbols-outlined" data-icon="hub">hub</span>
-                        Integrations
-                    </button>
-</aside>
-<div class="flex flex-col gap-8">
-<section class="glass-panel p-8 rounded-lg">
-<div class="flex justify-between items-center mb-8">
-<h2 class="text-2xl font-headline font-semibold">Profile Information</h2>
-<button class="px-6 py-2 rounded-full bg-gradient-to-r from-primary to-primary-container text-on-primary-container font-bold text-sm hover:scale-105 transition-transform shadow-lg shadow-primary/10">Save Changes</button>
-</div>
-<div class="flex flex-col md:flex-row gap-10 items-start">
-<div class="relative group">
-<div class="w-32 h-32 rounded-full overflow-hidden border-2 border-primary/20 ring-4 ring-primary-dim/5">
-<img alt="Profile" class="w-full h-full object-cover" data-alt="professional headshot of a creative technologist with minimalist background and cool cyan studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCIdipKWyoM8aUqs1Vn6LPDVKpGVu4MekKtxfuOCPOYX8pK9G0xq-V3Cxb34gxefWoGoBS_YDL5gIUg-USCQDhoTEAdNWfs0uq-vhClomqNLXypjCpJNQgFOuS7rR7OutfAAG3XVR8PDIhV8GCawrRljkiIfOzEwhd0x7RjBKVi99tvk1dZwxOhIPJXYfVHhR0IC3fssrMpJifKEMjJ4fhmLggVLBk7zhHoIJX5RzeegFzOefZyGvP8JdMluwUcgoUO_rgKP7OFir65"/>
-</div>
-<button class="absolute bottom-0 right-0 w-10 h-10 rounded-full bg-primary text-on-primary flex items-center justify-center shadow-lg border-2 border-surface-container group-hover:scale-110 transition-transform">
-<span class="material-symbols-outlined text-sm" data-icon="edit">edit</span>
-</button>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-2 gap-6 flex-1 w-full">
-<div class="flex flex-col gap-2">
-<label class="text-sm font-medium text-on-surface-variant px-1">First Name</label>
-<input class="bg-surface-container-lowest border border-outline-variant/20 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary transition-all" type="text" value="Elena"/>
-</div>
-<div class="flex flex-col gap-2">
-<label class="text-sm font-medium text-on-surface-variant px-1">Last Name</label>
-<input class="bg-surface-container-lowest border border-outline-variant/20 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary transition-all" type="text" value="Vance"/>
-</div>
-<div class="flex flex-col gap-2">
-<label class="text-sm font-medium text-on-surface-variant px-1">Company</label>
-<input class="bg-surface-container-lowest border border-outline-variant/20 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary transition-all" type="text" value="Lumina Voice Systems"/>
-</div>
-<div class="flex flex-col gap-2">
-<label class="text-sm font-medium text-on-surface-variant px-1">Industry</label>
-<select class="bg-surface-container-lowest border border-outline-variant/20 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary transition-all appearance-none">
-<option selected="">Voice Technology</option>
-<option>Artificial Intelligence</option>
-<option>Fintech</option>
-<option>Enterprise Software</option>
-</select>
-</div>
-</div>
-</div>
-</section>
-<section class="glass-panel p-8 rounded-lg">
-<h2 class="text-2xl font-headline font-semibold mb-8">Security Credentials</h2>
-<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-<div class="flex flex-col gap-4">
-<div class="flex flex-col gap-2">
-<label class="text-sm font-medium text-on-surface-variant px-1">Current Password</label>
-<input class="bg-surface-container-lowest border border-outline-variant/20 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary transition-all" placeholder="••••••••••••" type="password"/>
-</div>
-<div class="flex flex-col gap-2">
-<label class="text-sm font-medium text-on-surface-variant px-1">New Password</label>
-<input class="bg-surface-container-lowest border border-outline-variant/20 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary transition-all" placeholder="Enter new password" type="password"/>
-</div>
-<button class="mt-2 w-fit px-6 py-2 rounded-full border border-outline-variant/20 text-on-surface font-medium text-sm hover:bg-surface-container-high transition-all">Update Password</button>
-</div>
-<div class="bg-surface-container-low p-6 rounded-lg border border-primary/10">
-<div class="flex items-center gap-3 mb-4 text-primary">
-<span class="material-symbols-outlined" data-icon="shield_lock">shield_lock</span>
-<h3 class="font-bold">Two-Factor Auth</h3>
-</div>
-<p class="text-sm text-on-surface-variant mb-6 leading-relaxed">Add an extra layer of security to your account by requiring a code from your mobile device to log in.</p>
-<button class="w-full py-3 rounded-lg bg-surface-container-highest border border-primary/20 text-primary text-sm font-bold hover:bg-primary hover:text-on-primary transition-all">Enable 2FA</button>
-</div>
-</div>
-</section>
-<section class="glass-panel p-8 rounded-lg">
-<div class="flex justify-between items-start mb-8">
-<div>
-<h2 class="text-2xl font-headline font-semibold mb-2">Integrations &amp; API</h2>
-<p class="text-on-surface-variant text-sm">Connect shiftToAI to your external infrastructure and workflows.</p>
-</div>
-<span class="bg-tertiary-container/10 text-tertiary text-[10px] uppercase tracking-widest font-bold px-3 py-1 rounded-full border border-tertiary/20">Enterprise Ready</span>
-</div>
-<div class="space-y-6">
-<div class="bg-surface-container-low p-6 rounded-lg">
-<label class="text-sm font-bold text-on-surface mb-4 block">Webhook URL</label>
-<div class="flex gap-2">
-<input class="flex-1 bg-surface-container-lowest border border-outline-variant/10 rounded-lg px-4 py-3 text-sm font-mono text-primary-dim focus:outline-none" readonly="" type="text" value="https://api.lumina.io/webhooks/v1/voice-event"/>
-<button class="px-4 bg-surface-container-high rounded-lg hover:text-primary transition-colors">
-<span class="material-symbols-outlined" data-icon="content_copy">content_copy</span>
-</button>
-</div>
-<p class="text-[11px] text-on-surface-variant mt-3">Notifications will be sent to this URL when voice processing tasks are complete.</p>
-</div>
-<div class="bg-surface-container-low p-6 rounded-lg">
-<div class="flex justify-between items-center mb-4">
-<label class="text-sm font-bold text-on-surface">Production API Key</label>
-<button class="text-xs text-error-dim font-bold hover:underline">Revoke Key</button>
-</div>
-<div class="flex gap-2">
-<div class="relative flex-1">
-<input class="w-full bg-surface-container-lowest border border-outline-variant/10 rounded-lg px-4 py-3 text-sm font-mono text-on-surface-variant focus:outline-none" readonly="" type="password" value="sk_live_51M7vH9G4x2Z1PqR8yT5vU3w"/>
-<button class="absolute right-3 top-1/2 -translate-y-1/2 text-on-surface-variant hover:text-on-surface">
-<span class="material-symbols-outlined text-lg" data-icon="visibility">visibility</span>
-</button>
-</div>
-<button class="px-4 bg-surface-container-high rounded-lg hover:text-primary transition-colors">
-<span class="material-symbols-outlined" data-icon="content_copy">content_copy</span>
-</button>
-</div>
-</div>
-</div>
-</section>
-</div>
-</div>
-</main>
-</div>
-<footer class="bg-slate-950 w-full py-12 border-t border-slate-800/30 relative z-20">
-<div class="flex flex-col md:flex-row justify-between items-center px-8 max-w-7xl mx-auto gap-4">
-<div class="text-lg font-bold text-cyan-400 font-['Manrope']">shiftToAI</div>
-<div class="flex gap-8">
-<a class="text-slate-500 hover:text-cyan-300 transition-colors font-['Manrope'] text-sm opacity-80 hover:opacity-100" href="#">Privacy Policy</a>
-<a class="text-slate-500 hover:text-cyan-300 transition-colors font-['Manrope'] text-sm opacity-80 hover:opacity-100" href="#">Terms of Service</a>
-<a class="text-slate-500 hover:text-cyan-300 transition-colors font-['Manrope'] text-sm opacity-80 hover:opacity-100" href="#">Cookies</a>
-<a class="text-slate-500 hover:text-cyan-300 transition-colors font-['Manrope'] text-sm opacity-80 hover:opacity-100" href="#">Support</a>
-</div>
-<div class="text-slate-500 font-['Manrope'] text-sm opacity-80">© 2024 shiftToAI. All rights reserved.</div>
-</div>
-</footer>
-</body></html>
+                  </div>
+                  <button class="px-4 bg-surface-container-high rounded-lg hover:text-primary transition-colors">
+                    <span class="material-symbols-outlined" data-icon="content_copy">content_copy</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </main>
+  </div>
+  <footer class="bg-slate-950 w-full py-12 border-t border-slate-800/30 relative z-20">
+    <div class="flex flex-col md:flex-row justify-between items-center px-8 max-w-7xl mx-auto gap-4">
+      <div class="text-lg font-bold text-cyan-400 font-['Manrope']">shiftToAI</div>
+      <div class="flex gap-8">
+        <a class="text-slate-500 hover:text-cyan-300 transition-colors font-['Manrope'] text-sm opacity-80 hover:opacity-100"
+          href="#">Privacy Policy</a>
+        <a class="text-slate-500 hover:text-cyan-300 transition-colors font-['Manrope'] text-sm opacity-80 hover:opacity-100"
+          href="#">Terms of Service</a>
+        <a class="text-slate-500 hover:text-cyan-300 transition-colors font-['Manrope'] text-sm opacity-80 hover:opacity-100"
+          href="#">Cookies</a>
+        <a class="text-slate-500 hover:text-cyan-300 transition-colors font-['Manrope'] text-sm opacity-80 hover:opacity-100"
+          href="#">Support</a>
+      </div>
+      <div class="text-slate-500 font-['Manrope'] text-sm opacity-80">© 2024 shiftToAI. All rights reserved.</div>
+    </div>
+  </footer>
+</body>
+
+</html>

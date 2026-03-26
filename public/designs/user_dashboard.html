@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&amp;family=Manrope:wght@200..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "error": "#ff716c",
+              "on-tertiary-fixed-variant": "#006742",
+              "surface-tint": "#8ff5ff",
+              "inverse-on-surface": "#52555c",
+              "on-error-container": "#ffa8a3",
+              "secondary-fixed-dim": "#ceb9ff",
+              "tertiary-fixed-dim": "#00efa0",
+              "secondary": "#ac89ff",
+              "surface-container-lowest": "#000000",
+              "background": "#0b0e14",
+              "primary-fixed-dim": "#00deec",
+              "on-secondary-fixed": "#41009a",
+              "on-surface-variant": "#a9abb3",
+              "tertiary": "#afffd1",
+              "inverse-primary": "#006a71",
+              "on-secondary-fixed-variant": "#6300e2",
+              "on-secondary": "#290067",
+              "on-tertiary-fixed": "#00472d",
+              "surface-container": "#161a21",
+              "on-background": "#ecedf6",
+              "outline": "#73757d",
+              "secondary-dim": "#874cff",
+              "primary-container": "#00eefc",
+              "secondary-container": "#7000ff",
+              "on-primary": "#005d63",
+              "surface-container-high": "#1c2028",
+              "on-tertiary-container": "#005c3b",
+              "surface-dim": "#0b0e14",
+              "on-primary-fixed-variant": "#005e64",
+              "tertiary-dim": "#00efa0",
+              "primary-dim": "#00deec",
+              "error-dim": "#d7383b",
+              "error-container": "#9f0519",
+              "surface-bright": "#282c36",
+              "on-secondary-container": "#f8f1ff",
+              "outline-variant": "#45484f",
+              "surface": "#0b0e14",
+              "inverse-surface": "#f9f9ff",
+              "primary-fixed": "#00eefc",
+              "secondary-fixed": "#dac9ff",
+              "surface-container-low": "#10131a",
+              "primary": "#8ff5ff",
+              "surface-variant": "#22262f",
+              "surface-container-highest": "#22262f",
+              "on-tertiary": "#006642",
+              "on-error": "#490006",
+              "tertiary-fixed": "#00ffab",
+              "on-surface": "#ecedf6",
+              "tertiary-container": "#00ffab",
+              "on-primary-container": "#005359",
+              "on-primary-fixed": "#003f43"
+            },
+            fontFamily: {
+              "headline": ["Space Grotesk"],
+              "body": ["Manrope"],
+              "label": ["Manrope"]
+            },
+            borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      .glass-panel {
+        background: rgba(22, 26, 33, 0.4);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+      }
+      .atmospheric-glow {
+        background: radial-gradient(circle at center, rgba(143, 245, 255, 0.08) 0%, transparent 70%);
+      }
+      .no-scrollbar::-webkit-scrollbar {
+        display: none;
+      }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-primary/30 selection:text-primary">
+<!-- Top Navigation Bar -->
+<nav class="fixed top-0 w-full z-50 bg-surface/40 backdrop-blur-xl shadow-[0_40px_80px_rgba(172,137,255,0.06)]">
+<div class="flex justify-between items-center w-full px-8 py-4 max-w-screen-2xl mx-auto">
+<div class="text-2xl font-black tracking-tighter text-[#00F0FF] italic">shiftToAI</div>
+<div class="hidden md:flex items-center gap-8">
+<a class="font-['Space_Grotesk'] tracking-tight leading-none text-sm font-bold uppercase text-[#00F0FF] border-b-2 border-[#00F0FF] pb-1 hover:scale-105 transition-all" href="#">Home</a>
+<a class="font-['Space_Grotesk'] tracking-tight leading-none text-sm font-bold uppercase text-on-surface-variant/70 hover:text-[#8ff5ff] hover:scale-105 transition-all" href="#dashboard-sneak-peek">Dashboard</a>
+<a class="font-['Space_Grotesk'] tracking-tight leading-none text-sm font-bold uppercase text-on-surface-variant/70 hover:text-[#8ff5ff] hover:scale-105 transition-all" href="#services">Services</a>
+<a class="font-['Space_Grotesk'] tracking-tight leading-none text-sm font-bold uppercase text-on-surface-variant/70 hover:text-[#8ff5ff] hover:scale-105 transition-all" href="#demo">Demo</a>
+<a class="font-['Space_Grotesk'] tracking-tight leading-none text-sm font-bold uppercase text-on-surface-variant/70 hover:text-[#8ff5ff] hover:scale-105 transition-all" href="#contact">Contact</a>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-primary transition-colors">dark_mode</span>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-primary transition-colors">account_circle</span>
+<button class="hidden lg:block px-6 py-2 rounded-full border border-outline-variant/20 font-bold text-sm uppercase tracking-wider hover:bg-surface-variant transition-all">Login</button>
+<button class="px-6 py-2 rounded-full bg-gradient-to-r from-primary to-primary-container text-on-primary-container font-bold text-sm uppercase tracking-wider shadow-[0_0_20px_rgba(143,245,255,0.3)] hover:scale-105 active:scale-95 transition-all">Sign Up</button>
+</div>
+</div>
+</nav>
+<div class="flex min-h-screen pt-20">
+<!-- Sidebar Navigation -->
+<aside class="hidden md:flex flex-col w-64 bg-surface-container-low border-r border-outline-variant/10 p-6 fixed h-[calc(100vh-5rem)]">
+<div class="flex flex-col gap-2">
+<a class="flex items-center gap-3 px-4 py-3 bg-primary/10 text-primary rounded-xl font-bold transition-all group" href="#">
+<span class="material-symbols-outlined group-hover:scale-110 transition-transform">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container hover:text-on-surface rounded-xl transition-all group" href="#">
+<span class="material-symbols-outlined group-hover:scale-110 transition-transform">payments</span>
+<span>Billing</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container hover:text-on-surface rounded-xl transition-all group" href="#">
+<span class="material-symbols-outlined group-hover:scale-110 transition-transform">settings</span>
+<span>Settings</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container hover:text-on-surface rounded-xl transition-all group" href="#">
+<span class="material-symbols-outlined group-hover:scale-110 transition-transform">support_agent</span>
+<span>AI Agents</span>
+</a>
+</div>
+<div class="mt-auto p-4 glass-panel rounded-2xl border border-outline-variant/10">
+<p class="text-[10px] uppercase tracking-widest text-on-surface-variant mb-2">Workspace</p>
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-secondary flex items-center justify-center text-on-secondary font-bold">RE</div>
+<div class="overflow-hidden">
+<p class="text-sm font-bold truncate">Elite Property Group</p>
+<p class="text-xs text-on-surface-variant">Real Estate</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 md:ml-64 p-8 lg:p-12 atmospheric-glow">
+<!-- Welcome Header -->
+<header class="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div>
+<h1 class="text-4xl lg:text-5xl font-headline font-bold tracking-tight mb-2">Welcome back, <span class="text-primary">Alex</span>!</h1>
+<div class="flex items-center gap-3">
+<span class="px-3 py-1 bg-surface-container text-on-surface-variant text-xs font-bold rounded-full border border-outline-variant/20 uppercase tracking-tighter">Elite Property Group</span>
+<span class="w-1 h-1 bg-outline-variant rounded-full"></span>
+<span class="text-on-surface-variant text-sm font-medium">Real Estate Industry</span>
+</div>
+</div>
+<div class="flex gap-3">
+<button class="flex items-center gap-2 px-5 py-2.5 bg-surface-container-high hover:bg-surface-container-highest text-on-surface rounded-xl border border-outline-variant/20 transition-all font-bold text-sm">
+<span class="material-symbols-outlined text-lg">calendar_today</span>
+                        Last 30 Days
+                    </button>
+<button class="flex items-center gap-2 px-5 py-2.5 bg-gradient-to-br from-secondary to-secondary-dim text-white rounded-xl shadow-lg hover:shadow-secondary/20 transition-all font-bold text-sm">
+<span class="material-symbols-outlined text-lg">add</span>
+                        New Agent
+                    </button>
+</div>
+</header>
+<!-- Metrics Grid -->
+<section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+<div class="glass-panel p-6 rounded-lg border border-outline-variant/10 hover:border-primary/30 transition-all group">
+<div class="flex justify-between items-start mb-4">
+<div class="p-2 bg-primary/10 rounded-lg text-primary">
+<span class="material-symbols-outlined">call</span>
+</div>
+<span class="text-[10px] font-bold text-tertiary-dim">+12% vs last month</span>
+</div>
+<p class="text-on-surface-variant text-sm font-medium uppercase tracking-widest mb-1">Total Calls Handled</p>
+<h3 class="text-3xl font-headline font-bold">12,482</h3>
+</div>
+<div class="glass-panel p-6 rounded-lg border border-outline-variant/10 hover:border-primary/30 transition-all group">
+<div class="flex justify-between items-start mb-4">
+<div class="p-2 bg-secondary/10 rounded-lg text-secondary">
+<span class="material-symbols-outlined">schedule</span>
+</div>
+<span class="text-[10px] font-bold text-on-surface-variant">Steady</span>
+</div>
+<p class="text-on-surface-variant text-sm font-medium uppercase tracking-widest mb-1">Voice Minutes Used</p>
+<h3 class="text-3xl font-headline font-bold">45,210</h3>
+</div>
+<div class="glass-panel p-6 rounded-lg border border-outline-variant/10 hover:border-primary/30 transition-all group">
+<div class="flex justify-between items-start mb-4">
+<div class="p-2 bg-tertiary/10 rounded-lg text-tertiary">
+<span class="material-symbols-outlined">event_available</span>
+</div>
+<span class="text-[10px] font-bold text-tertiary-dim">+8.4%</span>
+</div>
+<p class="text-on-surface-variant text-sm font-medium uppercase tracking-widest mb-1">Success Rate (Bookings)</p>
+<h3 class="text-3xl font-headline font-bold">94.8%</h3>
+</div>
+<div class="glass-panel p-6 rounded-lg border border-outline-variant/10 hover:border-primary/30 transition-all group">
+<div class="flex justify-between items-start mb-4">
+<div class="p-2 bg-error/10 rounded-lg text-error">
+<span class="material-symbols-outlined">timer</span>
+</div>
+<span class="text-[10px] font-bold text-tertiary-dim">-5s vs yesterday</span>
+</div>
+<p class="text-on-surface-variant text-sm font-medium uppercase tracking-widest mb-1">Avg. Call Duration</p>
+<h3 class="text-3xl font-headline font-bold">3m 42s</h3>
+</div>
+</section>
+<!-- Active Agents Section -->
+<section class="mb-12">
+<div class="flex items-center justify-between mb-6">
+<h2 class="text-2xl font-headline font-bold tracking-tight">Active Agents</h2>
+<button class="text-primary text-sm font-bold hover:underline">Manage Team</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Sarah -->
+<div class="glass-panel p-6 rounded-xl border border-outline-variant/10">
+<div class="flex items-center gap-4 mb-4">
+<div class="w-12 h-12 rounded-full bg-primary/20 border border-primary/30 flex items-center justify-center text-primary font-bold">S</div>
+<div>
+<h4 class="font-bold text-lg leading-tight">Sarah</h4>
+<p class="text-xs text-on-surface-variant">Customer Support</p>
+</div>
+<span class="ml-auto flex items-center gap-1 px-2 py-0.5 rounded-full bg-tertiary-fixed-dim/20 text-tertiary-fixed-dim text-[10px] font-bold uppercase">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary-fixed-dim"></span> Active
+</span>
+</div>
+<div class="flex justify-between items-center text-sm mb-2">
+<span class="text-on-surface-variant">Type</span>
+<span class="font-bold">Inbound</span>
+</div>
+<div class="flex justify-between items-center text-sm">
+<span class="text-on-surface-variant">Calls</span>
+<span class="font-bold text-primary">842</span>
+</div>
+</div>
+<!-- Marcus -->
+<div class="glass-panel p-6 rounded-xl border border-outline-variant/10">
+<div class="flex items-center gap-4 mb-4">
+<div class="w-12 h-12 rounded-full bg-secondary/20 border border-secondary/30 flex items-center justify-center text-secondary font-bold">M</div>
+<div>
+<h4 class="font-bold text-lg leading-tight">Marcus</h4>
+<p class="text-xs text-on-surface-variant">Outbound Sales</p>
+</div>
+<span class="ml-auto flex items-center gap-1 px-2 py-0.5 rounded-full bg-tertiary-fixed-dim/20 text-tertiary-fixed-dim text-[10px] font-bold uppercase">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary-fixed-dim"></span> Active
+</span>
+</div>
+<div class="flex justify-between items-center text-sm mb-2">
+<span class="text-on-surface-variant">Type</span>
+<span class="font-bold">Outbound</span>
+</div>
+<div class="flex justify-between items-center text-sm">
+<span class="text-on-surface-variant">Calls</span>
+<span class="font-bold text-primary">406</span>
+</div>
+</div>
+<!-- Elena -->
+<div class="glass-panel p-6 rounded-xl border border-outline-variant/10 opacity-75">
+<div class="flex items-center gap-4 mb-4">
+<div class="w-12 h-12 rounded-full bg-outline-variant/20 border border-outline-variant/30 flex items-center justify-center text-on-surface-variant font-bold">E</div>
+<div>
+<h4 class="font-bold text-lg leading-tight">Elena</h4>
+<p class="text-xs text-on-surface-variant">Appointment Setter</p>
+</div>
+<span class="ml-auto flex items-center gap-1 px-2 py-0.5 rounded-full bg-primary-fixed-dim/20 text-primary-fixed-dim text-[10px] font-bold uppercase">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-fixed-dim animate-pulse"></span> Training
+</span>
+</div>
+<div class="flex justify-between items-center text-sm mb-2">
+<span class="text-on-surface-variant">Type</span>
+<span class="font-bold">Outbound</span>
+</div>
+<div class="flex justify-between items-center text-sm">
+<span class="text-on-surface-variant">Calls</span>
+<span class="font-bold">0</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Call Logs Section -->
+<section class="mb-12">
+<div class="flex items-center justify-between mb-6">
+<h2 class="text-2xl font-headline font-bold tracking-tight">Recent Call Logs</h2>
+<div class="flex gap-3">
+<button class="flex items-center gap-2 px-4 py-2 bg-surface-container-high hover:bg-surface-container-highest text-on-surface rounded-lg border border-outline-variant/20 transition-all font-bold text-xs uppercase tracking-widest">
+<span class="material-symbols-outlined text-sm">download</span>
+                        Export CSV
+                    </button>
+<button class="text-primary text-sm font-bold hover:underline">View All Logs</button>
+</div>
+</div>
+<div class="glass-panel rounded-lg border border-outline-variant/10 overflow-hidden">
+<div class="overflow-x-auto no-scrollbar">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container/50 border-b border-outline-variant/10">
+<th class="px-6 py-4 text-xs font-bold uppercase tracking-widest text-on-surface-variant">Contact</th>
+<th class="px-6 py-4 text-xs font-bold uppercase tracking-widest text-on-surface-variant">Agent</th>
+<th class="px-6 py-4 text-xs font-bold uppercase tracking-widest text-on-surface-variant">Duration</th>
+<th class="px-6 py-4 text-xs font-bold uppercase tracking-widest text-on-surface-variant">Outcome</th>
+<th class="px-6 py-4 text-xs font-bold uppercase tracking-widest text-on-surface-variant text-right">Action</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/10">
+<tr class="hover:bg-surface-container-high/30 transition-colors group">
+<td class="px-6 py-4">
+<div class="flex flex-col">
+<span class="text-sm font-bold">Jordan Smith</span>
+<span class="text-[10px] text-on-surface-variant">2 mins ago</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-3 text-sm font-medium">
+<div class="w-6 h-6 rounded-full bg-primary/20 flex items-center justify-center text-[10px] font-bold text-primary">S</div>
+Sarah
+</div>
+</td>
+<td class="px-6 py-4 text-sm text-on-surface-variant">4m 22s</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-tertiary-fixed-dim/20 text-tertiary-fixed-dim text-[10px] font-bold uppercase">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary-fixed-dim"></span>
+                                            Booked
+                                        </span>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="p-2 hover:bg-surface-container rounded-lg transition-colors">
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary">play_circle</span>
+</button>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-high/30 transition-colors group">
+<td class="px-6 py-4">
+<div class="flex flex-col">
+<span class="text-sm font-bold">Maria Garcia</span>
+<span class="text-[10px] text-on-surface-variant font-bold text-primary animate-pulse uppercase">Active now</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-3 text-sm font-medium">
+<div class="w-6 h-6 rounded-full bg-secondary/20 flex items-center justify-center text-[10px] font-bold text-secondary">M</div>
+Marcus
+</div>
+</td>
+<td class="px-6 py-4 text-sm text-on-surface-variant">1m 15s</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-primary-fixed-dim/20 text-primary-fixed-dim text-[10px] font-bold uppercase">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-fixed-dim animate-pulse"></span>
+                                            In-Progress
+                                        </span>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="p-2 hover:bg-surface-container rounded-lg transition-colors">
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary">visibility</span>
+</button>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-high/30 transition-colors group">
+<td class="px-6 py-4">
+<div class="flex flex-col">
+<span class="text-sm font-bold">Robert Chen</span>
+<span class="text-[10px] text-on-surface-variant">14 mins ago</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-3 text-sm font-medium">
+<div class="w-6 h-6 rounded-full bg-primary/20 flex items-center justify-center text-[10px] font-bold text-primary">S</div>
+Sarah
+</div>
+</td>
+<td class="px-6 py-4 text-sm text-on-surface-variant">0m 08s</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-error-dim/20 text-error-dim text-[10px] font-bold uppercase">
+<span class="w-1.5 h-1.5 rounded-full bg-error-dim"></span>
+                                            No Answer
+                                        </span>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="p-2 hover:bg-surface-container rounded-lg transition-colors">
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary">info</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<!-- Promotional/Insights Banner -->
+<section class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+<div class="relative overflow-hidden rounded-lg p-8 glass-panel border border-primary/20 min-h-[240px] flex flex-col justify-center">
+<div class="relative z-10">
+<span class="px-3 py-1 bg-primary text-on-primary text-[10px] font-bold rounded-full uppercase mb-4 inline-block">Pro Tip</span>
+<h4 class="text-2xl font-headline font-bold mb-3 max-w-md">Optimize your Agent Response for Real Estate Inquiries</h4>
+<p class="text-on-surface-variant text-sm max-w-sm mb-6">Our latest benchmark shows adding 'Local Neighborhood Experts' to your prompt increases lead quality by 24%.</p>
+<button class="text-primary font-bold text-sm flex items-center gap-2 group">
+                            Read Optimization Guide
+                            <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+</div>
+<!-- Decorative element -->
+<div class="absolute -right-20 -bottom-20 w-64 h-64 bg-primary/10 rounded-full blur-[100px]"></div>
+</div>
+<div class="relative overflow-hidden rounded-lg p-8 bg-surface-container-high border border-outline-variant/10 min-h-[240px] flex flex-col justify-center">
+<div class="relative z-10">
+<h4 class="text-2xl font-headline font-bold mb-3">Plan Usage</h4>
+<div class="mb-4">
+<div class="flex justify-between text-xs font-bold text-on-surface-variant mb-2">
+<span>Minutes Remaining</span>
+<span>4,790 / 50,000</span>
+</div>
+<div class="w-full h-2 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-secondary w-[91%]"></div>
+</div>
+</div>
+<p class="text-on-surface-variant text-xs mb-6">You're at 91% of your current monthly quota. Upgrade for uninterrupted service.</p>
+<button class="px-6 py-2 bg-surface border border-outline-variant/20 hover:bg-surface-container text-on-surface rounded-xl font-bold text-sm transition-all">
+                            Manage Billing
+                        </button>
+</div>
+</div>
+</section>
+</main>
+</div>
+<!-- Footer -->
+<footer class="w-full border-t border-[#45484f]/15 bg-[#0b0e14] dark:bg-[#0b0e14] mt-auto">
+<div class="flex flex-col md:flex-row justify-between items-center px-12 py-10 w-full gap-6">
+<div class="flex flex-col gap-2 items-center md:items-start">
+<div class="text-lg font-bold text-[#00F0FF]">shiftToAI</div>
+<p class="font-['Manrope'] text-xs tracking-wide text-on-surface-variant/50">© 2024 shiftToAI. Built for the shiftToAI.</p>
+</div>
+<div class="flex flex-wrap justify-center gap-8 font-['Manrope'] text-xs tracking-wide">
+<a class="text-on-surface-variant/50 hover:text-[#00F0FF] transition-colors" href="#">Privacy Policy</a>
+<a class="text-on-surface-variant/50 hover:text-[#00F0FF] transition-colors" href="#">Terms of Service</a>
+<a class="text-on-surface-variant/50 hover:text-[#00F0FF] transition-colors" href="#">Security Compliance</a>
+<a class="text-on-surface-variant/50 hover:text-[#00F0FF] transition-colors" href="#">Hinglish Support</a>
+</div>
+<div class="flex gap-4">
+<a class="w-8 h-8 rounded-full border border-outline-variant/20 flex items-center justify-center text-on-surface-variant/50 hover:text-primary hover:border-primary/50 transition-all" href="#">
+<span class="material-symbols-outlined text-sm">public</span>
+</a>
+<a class="w-8 h-8 rounded-full border border-outline-variant/20 flex items-center justify-center text-on-surface-variant/50 hover:text-primary hover:border-primary/50 transition-all" href="#">
+<span class="material-symbols-outlined text-sm">mail</span>
+</a>
+</div>
+</div>
+</footer>
+</body></html>

@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>shiftToAI | Secure Authentication</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Manrope:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "error": "#ff716c",
+              "on-tertiary-fixed-variant": "#006742",
+              "surface-tint": "#8ff5ff",
+              "inverse-on-surface": "#52555c",
+              "on-error-container": "#ffa8a3",
+              "secondary-fixed-dim": "#ceb9ff",
+              "tertiary-fixed-dim": "#00efa0",
+              "secondary": "#ac89ff",
+              "surface-container-lowest": "#000000",
+              "background": "#0b0e14",
+              "primary-fixed-dim": "#00deec",
+              "on-secondary-fixed": "#41009a",
+              "on-surface-variant": "#a9abb3",
+              "tertiary": "#afffd1",
+              "inverse-primary": "#006a71",
+              "on-secondary-fixed-variant": "#6300e2",
+              "on-secondary": "#290067",
+              "on-tertiary-fixed": "#00472d",
+              "surface-container": "#161a21",
+              "on-background": "#ecedf6",
+              "outline": "#73757d",
+              "secondary-dim": "#874cff",
+              "primary-container": "#00eefc",
+              "secondary-container": "#7000ff",
+              "on-primary": "#005d63",
+              "surface-container-high": "#1c2028",
+              "on-tertiary-container": "#005c3b",
+              "surface-dim": "#0b0e14",
+              "on-primary-fixed-variant": "#005e64",
+              "tertiary-dim": "#00efa0",
+              "primary-dim": "#00deec",
+              "error-dim": "#d7383b",
+              "error-container": "#9f0519",
+              "surface-bright": "#282c36",
+              "on-secondary-container": "#f8f1ff",
+              "outline-variant": "#45484f",
+              "surface": "#0b0e14",
+              "inverse-surface": "#f9f9ff",
+              "primary-fixed": "#00eefc",
+              "secondary-fixed": "#dac9ff",
+              "surface-container-low": "#10131a",
+              "primary": "#8ff5ff",
+              "surface-variant": "#22262f",
+              "surface-container-highest": "#22262f",
+              "on-tertiary": "#006642",
+              "on-error": "#490006",
+              "tertiary-fixed": "#00ffab",
+              "on-surface": "#ecedf6",
+              "tertiary-container": "#00ffab",
+              "on-primary-container": "#005359",
+              "on-primary-fixed": "#003f43"
+            },
+            fontFamily: {
+              "headline": ["Space Grotesk"],
+              "body": ["Manrope"],
+              "label": ["Manrope"]
+            },
+            borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-card {
+            background: rgba(34, 38, 47, 0.4);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+        }
+        .bg-glow {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80vw;
+            height: 80vh;
+            background: radial-gradient(circle, rgba(143, 245, 255, 0.08) 0%, rgba(172, 137, 255, 0.05) 50%, transparent 100%);
+            z-index: -1;
+            filter: blur(80px);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-primary/30">
+<div class="bg-glow"></div>
+<nav class="fixed top-0 w-full z-50 bg-surface/40 backdrop-blur-xl dark:bg-[#161a21]/40 shadow-[0_40px_80px_rgba(172,137,255,0.06)]">
+<div class="flex justify-between items-center w-full px-8 py-4 max-w-screen-2xl mx-auto">
+<div class="text-2xl font-black tracking-tighter text-[#00F0FF] italic font-headline">shiftToAI</div>
+<div class="hidden md:flex gap-8">
+<a class="font-['Space_Grotesk'] tracking-tight leading-none text-sm font-bold uppercase text-on-surface-variant/70 hover:text-[#8ff5ff] transition-colors hover:scale-105 transition-all duration-300" href="#">Home</a>
+<a class="font-['Space_Grotesk'] tracking-tight leading-none text-sm font-bold uppercase text-on-surface-variant/70 hover:text-[#8ff5ff] transition-colors hover:scale-105 transition-all duration-300" href="#">Services</a>
+<a class="font-['Space_Grotesk'] tracking-tight leading-none text-sm font-bold uppercase text-on-surface-variant/70 hover:text-[#8ff5ff] transition-colors hover:scale-105 transition-all duration-300" href="#">Demo</a>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:scale-110 transition-transform">dark_mode</span>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:scale-110 transition-transform">account_circle</span>
+</div>
+</div>
+</nav>
+<main class="min-h-screen pt-24 pb-12 flex items-center justify-center px-6">
+<div class="w-full max-w-[480px]">
+<div class="glass-card rounded-lg p-8 md:p-12 border border-outline-variant/15 shadow-2xl relative overflow-hidden group transition-all duration-500 hover:shadow-primary/5">
+<div class="absolute -top-24 -right-24 w-48 h-48 bg-primary/10 blur-[60px] rounded-full group-hover:bg-primary/20 transition-colors duration-700"></div>
+<div class="absolute -bottom-24 -left-24 w-48 h-48 bg-secondary/10 blur-[60px] rounded-full group-hover:bg-secondary/20 transition-colors duration-700"></div>
+<div class="relative z-10">
+<header class="text-center mb-10">
+<h1 class="font-headline text-4xl font-bold tracking-tight mb-3">Welcome to shiftToAI</h1>
+<p class="text-on-surface-variant text-sm text-balance">Synchronize your voice with the shiftToAI network.</p>
+</header>
+<div class="bg-surface-container-lowest/50 p-1 rounded-full flex mb-8 border border-outline-variant/10">
+<button class="flex-1 py-2 text-sm font-bold rounded-full bg-primary-container text-on-primary-container shadow-sm transition-all">Login</button>
+<button class="flex-1 py-2 text-sm font-bold rounded-full text-on-surface-variant hover:text-on-surface transition-all">Sign Up</button>
+</div>
+<div class="grid gap-4 mb-8 grid-cols-1">
+<button class="flex items-center justify-center gap-3 py-3 px-4 rounded-full border border-outline-variant/20 bg-surface-container-high/40 hover:bg-surface-container-high hover:border-outline-variant/40 transition-all duration-300 group">
+<img alt="" class="w-5 h-5 group-hover:scale-110 transition-transform" data-alt="minimalist google logo icon on transparent background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuACrd_HpoN0X2Afa4n1t9fKLFbo5TfkFqgudWwqwWlrnPseZNN3GAj-SoqzwiXAng0pWPOg4ICWY9SIXZ7LyhbblFlQkdD0B8AJMOUvUpdou0hI_P03ra08DgJbtW6LPJz9rksSYe9ShyFox7mumnqODSNb_75dZijB5ontAqbnj3TXGMfygEkLWKljbLpkp9mqc6PNfvsi3fuiXfiECDRyOIUFhZIHuz36M8vkl7p0IqyP2-J7oRP0xhHpmo85ImJABcOIB6aI15bn"/>
+<span class="text-xs font-bold uppercase tracking-wider" textcontent="Continue with Google">Google</span>
+</button>
+</div>
+<div class="flex items-center gap-4 mb-8">
+<div class="h-[1px] flex-1 bg-outline-variant/20"></div>
+<span class="text-[10px] font-bold uppercase tracking-[0.2em] text-on-surface-variant/40">Or continue with</span>
+<div class="h-[1px] flex-1 bg-outline-variant/20"></div>
+</div>
+<form class="space-y-6">
+<div class="space-y-1.5">
+<label class="text-xs font-bold uppercase tracking-widest text-on-surface-variant ml-4">Email Address</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-5 top-1/2 -translate-y-1/2 text-on-surface-variant/50 text-xl">mail</span>
+<input class="w-full pl-14 pr-6 rounded-full bg-surface-container-lowest/30 border border-outline-variant/10 focus:border-primary focus:ring-4 focus:ring-primary-dim/10 transition-all text-sm outline-none text-on-surface placeholder:text-on-surface-variant/30 py-5" placeholder="name@company.com" type="email"/>
+</div>
+</div>
+<div class="space-y-1.5">
+<div class="flex justify-between items-center px-4">
+<label class="text-xs font-bold uppercase tracking-widest text-on-surface-variant">Password</label>
+<a class="text-[10px] font-bold text-primary hover:text-primary-container transition-colors uppercase tracking-wider" href="#">Forgot?</a>
+</div>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-5 top-1/2 -translate-y-1/2 text-on-surface-variant/50 text-xl">lock</span>
+<input class="w-full pl-14 pr-14 rounded-full bg-surface-container-lowest/30 border border-outline-variant/10 focus:border-primary focus:ring-4 focus:ring-primary-dim/10 transition-all text-sm outline-none text-on-surface placeholder:text-on-surface-variant/30 py-5" placeholder="••••••••" type="password"/>
+<button class="absolute right-5 top-1/2 -translate-y-1/2 text-on-surface-variant/50 hover:text-on-surface transition-colors" type="button">
+<span class="material-symbols-outlined text-xl">visibility</span>
+</button>
+</div>
+<div class="px-4 flex gap-1 mt-2">
+<div class="h-1 flex-1 rounded-full bg-primary-container"></div>
+<div class="h-1 flex-1 rounded-full bg-primary-container"></div>
+<div class="h-1 flex-1 rounded-full bg-surface-container-highest"></div>
+<div class="h-1 flex-1 rounded-full bg-surface-container-highest"></div>
+<span class="text-[9px] font-bold uppercase tracking-tighter text-on-surface-variant ml-2">Secure</span>
+</div>
+</div>
+<div class="flex items-center gap-3 px-4">
+<input class="w-4 h-4 rounded border-outline-variant/30 bg-surface-container-low text-primary focus:ring-primary/20" id="remember" type="checkbox"/>
+<label class="text-xs text-on-surface-variant font-medium" for="remember">Keep me authenticated for 30 days</label>
+</div>
+<button class="w-full py-4 rounded-full bg-gradient-to-r from-primary to-primary-container text-on-primary-container font-headline font-bold text-sm tracking-widest uppercase shadow-[0_10px_30px_rgba(0,238,252,0.2)] hover:shadow-[0_15px_40px_rgba(0,238,252,0.3)] hover:scale-[1.02] active:scale-95 transition-all duration-300" type="submit">
+                            Access Control Panel
+                        </button>
+</form>
+<footer class="mt-8 text-center">
+<div class="flex items-center justify-center gap-2 mb-4">
+<span class="material-symbols-outlined text-tertiary text-sm" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+<span class="text-[10px] font-bold uppercase tracking-[0.1em] text-on-surface-variant/60">End-to-End Encryption Enabled</span>
+</div>
+</footer>
+</div>
+</div>
+</div>
+</main>
+<footer class="w-full border-t border-[#45484f]/15 bg-[#0b0e14] dark:bg-[#0b0e14]">
+<div class="flex flex-col md:flex-row justify-between items-center px-12 py-10 w-full gap-6 max-w-screen-2xl mx-auto">
+<div class="flex flex-col gap-2">
+<div class="text-lg font-bold text-[#00F0FF] font-headline">shiftToAI</div>
+<p class="font-['Manrope'] text-xs tracking-wide text-on-surface-variant/50">© 2024 shiftToAI. Built for the shiftToAI.</p>
+</div>
+<div class="flex gap-6">
+<a class="font-['Manrope'] text-xs tracking-wide text-on-surface-variant/50 hover:text-[#00F0FF] transition-colors" href="#">Privacy Policy</a>
+<a class="font-['Manrope'] text-xs tracking-wide text-on-surface-variant/50 hover:text-[#00F0FF] transition-colors" href="#">Terms of Service</a>
+<a class="font-['Manrope'] text-xs tracking-wide text-on-surface-variant/50 hover:text-[#00F0FF] transition-colors" href="#">Security Compliance</a>
+<a class="font-['Manrope'] text-xs tracking-wide text-on-surface-variant/50 hover:text-[#00F0FF] transition-colors" href="#">Hinglish Support</a>
+</div>
+<div class="flex gap-4">
+<div class="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant/50 hover:text-[#00F0FF] hover:bg-surface-container-high transition-all cursor-pointer">
+<span class="material-symbols-outlined text-lg">language</span>
+</div>
+<div class="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant/50 hover:text-[#00F0FF] hover:bg-surface-container-high transition-all cursor-pointer">
+<span class="material-symbols-outlined text-lg">terminal</span>
+</div>
+</div>
+</div>
+<div class="w-full h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent"></div>
+</footer>
+</body></html>

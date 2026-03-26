@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>shiftToAI | The Sonic Power of Voice AI</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;900&amp;family=Manrope:wght@200;300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "error": "#ff716c",
+              "on-tertiary-fixed-variant": "#006742",
+              "surface-tint": "#8ff5ff",
+              "inverse-on-surface": "#52555c",
+              "on-error-container": "#ffa8a3",
+              "secondary-fixed-dim": "#ceb9ff",
+              "tertiary-fixed-dim": "#00efa0",
+              "secondary": "#ac89ff",
+              "surface-container-lowest": "#000000",
+              "background": "#0b0e14",
+              "primary-fixed-dim": "#00deec",
+              "on-secondary-fixed": "#41009a",
+              "on-surface-variant": "#a9abb3",
+              "tertiary": "#afffd1",
+              "inverse-primary": "#006a71",
+              "on-secondary-fixed-variant": "#6300e2",
+              "on-secondary": "#290067",
+              "on-tertiary-fixed": "#00472d",
+              "surface-container": "#161a21",
+              "on-background": "#ecedf6",
+              "outline": "#73757d",
+              "secondary-dim": "#874cff",
+              "primary-container": "#00eefc",
+              "secondary-container": "#7000ff",
+              "on-primary": "#005d63",
+              "surface-container-high": "#1c2028",
+              "on-tertiary-container": "#005c3b",
+              "surface-dim": "#0b0e14",
+              "on-primary-fixed-variant": "#005e64",
+              "tertiary-dim": "#00efa0",
+              "primary-dim": "#00deec",
+              "error-dim": "#d7383b",
+              "error-container": "#9f0519",
+              "surface-bright": "#282c36",
+              "on-secondary-container": "#f8f1ff",
+              "outline-variant": "#45484f",
+              "surface": "#0b0e14",
+              "inverse-surface": "#f9f9ff",
+              "primary-fixed": "#00eefc",
+              "secondary-fixed": "#dac9ff",
+              "surface-container-low": "#10131a",
+              "primary": "#8ff5ff",
+              "surface-variant": "#22262f",
+              "surface-container-highest": "#22262f",
+              "on-tertiary": "#006642",
+              "on-error": "#490006",
+              "tertiary-fixed": "#00ffab",
+              "on-surface": "#ecedf6",
+              "tertiary-container": "#00ffab",
+              "on-primary-container": "#005359",
+              "on-primary-fixed": "#003f43"
+            },
+            fontFamily: {
+              "headline": ["Space Grotesk"],
+              "body": ["Manrope"],
+              "label": ["Manrope"]
+            },
+            borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(34, 38, 47, 0.4);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        .atmospheric-glow {
+            filter: blur(80px);
+            opacity: 0.15;
+            z-index: -1;
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #8ff5ff 0%, #00eefc 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .calling-glow {
+            box-shadow: 0 0 40px rgba(143, 245, 255, 0.15);
+        }
+        @keyframes pulse-ring {
+            0% { transform: scale(0.9); opacity: 0; }
+            50% { opacity: 0.5; }
+            100% { transform: scale(1.4); opacity: 0; }
+        }
+        .ring-animation {
+            animation: pulse-ring 2s cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body selection:bg-primary/30">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-surface/40 backdrop-blur-xl shadow-[0_40px_80px_rgba(172,137,255,0.06)]">
+<div class="flex justify-between items-center w-full px-8 py-4 max-w-screen-2xl mx-auto">
+<div class="text-2xl font-black tracking-tighter text-[#00F0FF] italic">shiftToAI</div>
+<div class="hidden md:flex items-center gap-8">
+<a class="font-['Space_Grotesk'] tracking-tight leading-none text-sm font-bold uppercase text-[#00F0FF] border-b-2 border-[#00F0FF] pb-1 hover:scale-105 transition-all" href="#">Home</a>
+<a class="font-['Space_Grotesk'] tracking-tight leading-none text-sm font-bold uppercase text-on-surface-variant/70 hover:text-[#8ff5ff] hover:scale-105 transition-all" href="#dashboard-sneak-peek">Dashboard</a>
+<a class="font-['Space_Grotesk'] tracking-tight leading-none text-sm font-bold uppercase text-on-surface-variant/70 hover:text-[#8ff5ff] hover:scale-105 transition-all" href="#services">Services</a>
+<a class="font-['Space_Grotesk'] tracking-tight leading-none text-sm font-bold uppercase text-on-surface-variant/70 hover:text-[#8ff5ff] hover:scale-105 transition-all" href="#demo">Demo</a>
+<a class="font-['Space_Grotesk'] tracking-tight leading-none text-sm font-bold uppercase text-on-surface-variant/70 hover:text-[#8ff5ff] hover:scale-105 transition-all" href="#contact">Contact</a>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-primary transition-colors">dark_mode</span>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-primary transition-colors">account_circle</span>
+<button class="hidden lg:block px-6 py-2 rounded-full border border-outline-variant/20 font-bold text-sm uppercase tracking-wider hover:bg-surface-variant transition-all">Login</button>
+<button class="px-6 py-2 rounded-full bg-gradient-to-r from-primary to-primary-container text-on-primary-container font-bold text-sm uppercase tracking-wider shadow-[0_0_20px_rgba(143,245,255,0.3)] hover:scale-105 active:scale-95 transition-all">Sign Up</button>
+</div>
+</div>
+</nav>
+<main class="relative pt-24">
+<!-- Ambient Background Glows -->
+<div class="fixed top-[-10%] left-[-10%] w-[50%] h-[50%] bg-primary atmospheric-glow rounded-full"></div>
+<div class="fixed bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-secondary atmospheric-glow rounded-full"></div>
+<!-- Hero Section -->
+<section class="relative px-8 py-20 lg:py-32 flex flex-col items-center text-center max-w-5xl mx-auto">
+<div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-secondary-container/20 border border-secondary/20 mb-8">
+<span class="flex h-2 w-2 rounded-full bg-secondary animate-pulse"></span>
+<span class="text-secondary text-xs font-bold tracking-widest uppercase">The Future of Enterprise Voice</span>
+</div>
+<h1 class="font-headline text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter leading-[0.9] mb-8">
+                Exponential Growth with <span class="gradient-text">24/7 AI Voice</span> Agents
+            </h1>
+<p class="font-body text-lg md:text-xl text-on-surface-variant max-w-2xl mb-12 leading-relaxed">
+                Break communication barriers with hyper-realistic AI agents from <span class="text-primary font-bold">shiftToAI</span>. Native support for all <span class="text-primary font-semibold">Indian languages, Hinglish,</span> and international markets. Scale your reach, not your headcount.
+            </p>
+<div class="flex flex-col sm:flex-row gap-6 items-center">
+<button class="w-full sm:w-auto px-10 py-5 rounded-full bg-gradient-to-br from-primary to-primary-container text-on-primary-container font-black text-lg uppercase tracking-tight shadow-[0_15px_30px_rgba(0,238,252,0.2)] hover:scale-105 active:scale-95 transition-all">
+                    Get Started Now
+                </button>
+<button class="w-full sm:w-auto px-10 py-5 rounded-full border border-outline-variant/30 font-bold text-lg uppercase tracking-tight flex items-center justify-center gap-3 hover:bg-surface-variant transition-all group">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors">play_circle</span>
+                    Watch Demo
+                </button>
+</div>
+<!-- Hero Image/Visual -->
+<div class="mt-24 w-full relative">
+<div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent z-10"></div>
+<div class="glass-panel p-4 rounded-xl border border-outline-variant/10 shadow-2xl overflow-hidden">
+<img alt="Voice AI Dashboard Visual" class="w-full h-[400px] md:h-[600px] object-cover rounded-lg" data-alt="Futuristic glowing holographic interface displaying voice frequencies and abstract data nodes in a deep blue neon environment" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC5_d1762EvoGeW_22hpJW7jgtXHtrIn8C-QX--yiWuLDU7PJmAFDa67eENa0Aix83rufHIqze6bNEfgLrs6Wu_U54ABM2uKxJsEbF50pDaoEZLb5HlaDGf5BLHwpWdaSQz8kdni_0hfCO4-Q1kNXr7XWnDPbhPvWdBP3gDYaMhJXt2m5pVTZLP-vV9w7zt-e0iYbWj_xELZjsiX8Mlv4H0YzL-YZyqlIYcGRggqImr0ToY7YpHPATPO_NHVe7aJHztmFIBXMt7Ll34"/>
+</div>
+</div>
+</section>
+<!-- New Dashboard Product Sneak Peek Section -->
+<section class="px-8 py-24 max-w-screen-2xl mx-auto" id="dashboard-sneak-peek">
+<div class="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-4">
+<div>
+<span class="text-primary font-bold tracking-widest uppercase text-xs mb-2 block">Enterprise Command Center</span>
+<h2 class="font-headline text-4xl md:text-5xl font-black tracking-tight">Full Visibility into <span class="gradient-text">AI Operations</span></h2>
+</div>
+<p class="text-on-surface-variant max-w-md">The same high-performance dashboard our enterprise clients use to manage their voice workforce in real-time.</p>
+</div>
+<div class="glass-panel p-1 rounded-3xl border border-outline-variant/10 shadow-[0_50px_100px_rgba(0,0,0,0.4)] overflow-hidden">
+<div class="bg-surface-container-lowest/80 rounded-[calc(2rem-4px)] p-6 md:p-10">
+<!-- 1. Core Growth Metrics Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+<div class="bg-surface-container-low border border-outline-variant/10 p-6 rounded-2xl hover:border-primary/30 transition-all">
+<div class="flex justify-between items-start mb-4">
+<span class="material-symbols-outlined text-primary bg-primary/10 p-2 rounded-lg">call</span>
+<span class="text-xs font-bold text-tertiary">+12.4%</span>
+</div>
+<div class="text-on-surface-variant text-sm font-bold uppercase tracking-wider mb-1">Total Calls Handled</div>
+<div class="text-3xl font-headline font-black">12,482</div>
+</div>
+<div class="bg-surface-container-low border border-outline-variant/10 p-6 rounded-2xl hover:border-primary/30 transition-all">
+<div class="flex justify-between items-start mb-4">
+<span class="material-symbols-outlined text-secondary bg-secondary/10 p-2 rounded-lg">timer</span>
+<span class="text-xs font-bold text-tertiary">+8.1%</span>
+</div>
+<div class="text-on-surface-variant text-sm font-bold uppercase tracking-wider mb-1">Voice Minutes Used</div>
+<div class="text-3xl font-headline font-black">42,906</div>
+</div>
+<div class="bg-surface-container-low border border-outline-variant/10 p-6 rounded-2xl hover:border-primary/30 transition-all">
+<div class="flex justify-between items-start mb-4">
+<span class="material-symbols-outlined text-tertiary bg-tertiary/10 p-2 rounded-lg">verified</span>
+<span class="text-xs font-bold text-tertiary">+4.2%</span>
+</div>
+<div class="text-on-surface-variant text-sm font-bold uppercase tracking-wider mb-1">Success Rate (Bookings)</div>
+<div class="text-3xl font-headline font-black">28.5%</div>
+</div>
+<div class="bg-surface-container-low border border-outline-variant/10 p-6 rounded-2xl hover:border-primary/30 transition-all">
+<div class="flex justify-between items-start mb-4">
+<span class="material-symbols-outlined text-primary-fixed-dim bg-primary-fixed-dim/10 p-2 rounded-lg">avg_time</span>
+<span class="text-xs font-bold text-error">-0.5%</span>
+</div>
+<div class="text-on-surface-variant text-sm font-bold uppercase tracking-wider mb-1">Avg. Call Duration</div>
+<div class="text-3xl font-headline font-black">03:42</div>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
+<!-- 2. Active Agents Section -->
+<div class="lg:col-span-4 space-y-6">
+<div class="flex items-center justify-between mb-2">
+<h3 class="text-xl font-headline font-bold">Active Agents</h3>
+<span class="text-xs font-bold text-primary uppercase bg-primary/10 px-2 py-1 rounded">3 Live</span>
+</div>
+<!-- Agent Sarah -->
+<div class="bg-surface-container-low border border-outline-variant/10 p-5 rounded-2xl flex items-center gap-4 group hover:bg-surface-container transition-all">
+<div class="relative">
+<div class="w-14 h-14 rounded-full bg-primary/20 flex items-center justify-center text-primary overflow-hidden">
+<span class="material-symbols-outlined text-3xl">face</span>
+</div>
+<div class="absolute bottom-0 right-0 w-4 h-4 bg-tertiary border-2 border-surface-container-low rounded-full"></div>
+</div>
+<div class="flex-grow">
+<h4 class="font-bold text-on-surface">Sarah</h4>
+<p class="text-xs text-on-surface-variant font-medium">Customer Support • Inbound</p>
+</div>
+<div class="text-right">
+<div class="text-sm font-black text-on-surface">842</div>
+<div class="text-[10px] uppercase font-bold text-on-surface-variant/60">Calls</div>
+</div>
+</div>
+<!-- Agent Marcus -->
+<div class="bg-surface-container-low border border-outline-variant/10 p-5 rounded-2xl flex items-center gap-4 group hover:bg-surface-container transition-all">
+<div class="relative">
+<div class="w-14 h-14 rounded-full bg-secondary/20 flex items-center justify-center text-secondary overflow-hidden">
+<span class="material-symbols-outlined text-3xl">face_5</span>
+</div>
+<div class="absolute bottom-0 right-0 w-4 h-4 bg-tertiary border-2 border-surface-container-low rounded-full"></div>
+</div>
+<div class="flex-grow">
+<h4 class="font-bold text-on-surface">Marcus</h4>
+<p class="text-xs text-on-surface-variant font-medium">Outbound Sales • Outbound</p>
+</div>
+<div class="text-right">
+<div class="text-sm font-black text-on-surface">406</div>
+<div class="text-[10px] uppercase font-bold text-on-surface-variant/60">Calls</div>
+</div>
+</div>
+<!-- Agent Elena -->
+<div class="bg-surface-container-low border border-outline-variant/10 p-5 rounded-2xl flex items-center gap-4 group hover:bg-surface-container transition-all">
+<div class="relative">
+<div class="w-14 h-14 rounded-full bg-on-surface-variant/20 flex items-center justify-center text-on-surface-variant/60 overflow-hidden">
+<span class="material-symbols-outlined text-3xl">face_4</span>
+</div>
+<div class="absolute bottom-0 right-0 w-4 h-4 bg-orange-400 border-2 border-surface-container-low rounded-full"></div>
+</div>
+<div class="flex-grow">
+<h4 class="font-bold text-on-surface">Elena</h4>
+<p class="text-xs text-on-surface-variant font-medium">Appointment Setter • Outbound</p>
+</div>
+<div class="text-right">
+<div class="text-sm font-black text-on-surface-variant/50">0</div>
+<div class="text-[10px] uppercase font-bold text-on-surface-variant/40">Training</div>
+</div>
+</div>
+</div>
+<!-- 3. Recent Call Logs Table -->
+<div class="lg:col-span-8 flex flex-col">
+<div class="flex items-center justify-between mb-6">
+<h3 class="text-xl font-headline font-bold">Recent AI Interactions</h3>
+<!-- 4. Export CSV Button -->
+<button class="flex items-center gap-2 px-4 py-2 rounded-lg border border-outline-variant/20 hover:bg-surface-container transition-all text-sm font-bold">
+<span class="material-symbols-outlined text-sm">download</span>
+                                    Export CSV
+                                </button>
+</div>
+<div class="bg-surface-container-low border border-outline-variant/10 rounded-2xl overflow-hidden flex-grow">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="border-b border-outline-variant/10 bg-surface-container/50">
+<th class="px-6 py-4 text-[10px] uppercase tracking-widest font-black text-on-surface-variant">Contact</th>
+<th class="px-6 py-4 text-[10px] uppercase tracking-widest font-black text-on-surface-variant">Agent</th>
+<th class="px-6 py-4 text-[10px] uppercase tracking-widest font-black text-on-surface-variant">Duration</th>
+<th class="px-6 py-4 text-[10px] uppercase tracking-widest font-black text-on-surface-variant">Outcome</th>
+<th class="px-6 py-4 text-[10px] uppercase tracking-widest font-black text-on-surface-variant">Action</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/10">
+<tr class="hover:bg-surface-container/30 transition-colors">
+<td class="px-6 py-4 font-bold text-sm">+1 (555) 012-9843</td>
+<td class="px-6 py-4 text-sm">Sarah</td>
+<td class="px-6 py-4 text-sm font-mono text-on-surface-variant">04:12</td>
+<td class="px-6 py-4">
+<span class="px-3 py-1 rounded-full bg-tertiary/10 text-tertiary text-[10px] font-black uppercase">Booked</span>
+</td>
+<td class="px-6 py-4 flex gap-3">
+<span class="material-symbols-outlined text-primary text-sm cursor-pointer hover:scale-110 transition-transform">play_circle</span>
+<span class="material-symbols-outlined text-on-surface-variant text-sm cursor-pointer hover:scale-110 transition-transform">visibility</span>
+</td>
+</tr>
+<tr class="hover:bg-surface-container/30 transition-colors">
+<td class="px-6 py-4 font-bold text-sm">Ankit Sharma</td>
+<td class="px-6 py-4 text-sm">Marcus</td>
+<td class="px-6 py-4 text-sm font-mono text-on-surface-variant">02:54</td>
+<td class="px-6 py-4">
+<span class="px-3 py-1 rounded-full bg-primary/10 text-primary text-[10px] font-black uppercase">In-Progress</span>
+</td>
+<td class="px-6 py-4 flex gap-3">
+<span class="material-symbols-outlined text-primary text-sm cursor-pointer hover:scale-110 transition-transform">play_circle</span>
+<span class="material-symbols-outlined text-on-surface-variant text-sm cursor-pointer hover:scale-110 transition-transform">visibility</span>
+</td>
+</tr>
+<tr class="hover:bg-surface-container/30 transition-colors">
+<td class="px-6 py-4 font-bold text-sm">Priya V.</td>
+<td class="px-6 py-4 text-sm">Sarah</td>
+<td class="px-6 py-4 text-sm font-mono text-on-surface-variant">00:15</td>
+<td class="px-6 py-4">
+<span class="px-3 py-1 rounded-full bg-error/10 text-error text-[10px] font-black uppercase">No Answer</span>
+</td>
+<td class="px-6 py-4 flex gap-3">
+<span class="material-symbols-outlined text-on-surface-variant/30 text-sm cursor-not-allowed">play_circle</span>
+<span class="material-symbols-outlined text-on-surface-variant text-sm cursor-pointer hover:scale-110 transition-transform">visibility</span>
+</td>
+</tr>
+<tr class="hover:bg-surface-container/30 transition-colors">
+<td class="px-6 py-4 font-bold text-sm">+91 98765 43210</td>
+<td class="px-6 py-4 text-sm">Marcus</td>
+<td class="px-6 py-4 text-sm font-mono text-on-surface-variant">08:22</td>
+<td class="px-6 py-4">
+<span class="px-3 py-1 rounded-full bg-tertiary/10 text-tertiary text-[10px] font-black uppercase">Booked</span>
+</td>
+<td class="px-6 py-4 flex gap-3">
+<span class="material-symbols-outlined text-primary text-sm cursor-pointer hover:scale-110 transition-transform">play_circle</span>
+<span class="material-symbols-outlined text-on-surface-variant text-sm cursor-pointer hover:scale-110 transition-transform">visibility</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Bento Grid Services -->
+<section class="px-8 py-24 max-w-screen-2xl mx-auto" id="services">
+<div class="mb-16">
+<h2 class="font-headline text-4xl font-bold tracking-tight mb-4">Master the shiftToAI Engine</h2>
+<p class="text-on-surface-variant text-lg">Four dimensions of automated excellence for your business.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6 h-auto md:h-[800px]">
+<!-- Card 1: 24/7 Support -->
+<div class="md:col-span-7 bg-surface-container rounded-lg p-10 flex flex-col justify-between group hover:bg-surface-container-high transition-all relative overflow-hidden">
+<div class="absolute top-0 right-0 p-8 opacity-20 group-hover:opacity-40 transition-opacity">
+<span class="material-symbols-outlined text-9xl text-primary" style="font-variation-settings: 'FILL' 1;">all_inclusive</span>
+</div>
+<div>
+<span class="text-primary font-bold tracking-widest uppercase text-xs">Availability</span>
+<h3 class="text-3xl font-headline font-bold mt-4 mb-6">24/7 Support: Infinite Reach</h3>
+<p class="text-on-surface-variant leading-relaxed max-w-md">Your customers never wait. shiftToAI agents handle thousands of simultaneous calls at 3 AM with the same warmth and precision as high noon.</p>
+</div>
+<div class="flex gap-4 mt-8">
+<span class="px-4 py-2 rounded-full bg-surface-container-highest text-primary text-xs font-bold uppercase">Zero Latency</span>
+<span class="px-4 py-2 rounded-full bg-surface-container-highest text-primary text-xs font-bold uppercase">Infinite Scale</span>
+</div>
+</div>
+<!-- Card 2: Multilingual -->
+<div class="md:col-span-5 bg-gradient-to-br from-secondary/10 to-transparent border border-outline-variant/10 rounded-lg p-10 flex flex-col justify-end group hover:border-secondary/40 transition-all">
+<div class="mb-auto">
+<span class="material-symbols-outlined text-5xl text-secondary mb-6" style="font-variation-settings: 'FILL' 1;">translate</span>
+</div>
+<div>
+<span class="text-secondary font-bold tracking-widest uppercase text-xs">Language Matrix</span>
+<h3 class="text-3xl font-headline font-bold mt-4 mb-4">Multilingual Mastery</h3>
+<p class="text-on-surface-variant leading-relaxed">Full support for all Indian regional dialects + fluent Hinglish. shiftToAI speaks the language of your people, natively.</p>
+</div>
+</div>
+<!-- Card 3: Lead Qualification -->
+<div class="md:col-span-4 glass-panel border border-outline-variant/10 rounded-lg p-10 flex flex-col group hover:scale-[1.02] transition-all">
+<span class="material-symbols-outlined text-4xl text-tertiary mb-8" style="font-variation-settings: 'FILL' 1;">filter_list</span>
+<h3 class="text-2xl font-headline font-bold mb-4">Lead Qualification</h3>
+<p class="text-on-surface-variant mb-8 flex-grow">Instant sorting of high-value prospects. shiftToAI bots qualify leads in real-time based on your specific custom criteria.</p>
+<div class="flex items-center text-tertiary font-bold text-sm uppercase gap-2">
+                        View Logic <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</div>
+</div>
+<!-- Card 4: Workflow Automation -->
+<div class="md:col-span-8 bg-surface-container-low rounded-lg p-1 flex relative group overflow-hidden border border-outline-variant/10">
+<div class="flex-1 p-10 flex flex-col justify-center">
+<span class="text-primary-dim font-bold tracking-widest uppercase text-xs">Precision</span>
+<h3 class="text-3xl font-headline font-bold mt-4 mb-4">Workflow Automation</h3>
+<p class="text-on-surface-variant max-w-sm">From CRM logging to automated follow-up scheduling. shiftToAI voice agents are integrated into your entire ecosystem.</p>
+</div>
+<div class="flex-1 hidden lg:block bg-surface-container-high m-2 rounded-lg relative">
+<img alt="Automation Visualization" class="absolute inset-0 w-full h-full object-cover rounded-lg opacity-40 group-hover:scale-110 transition-transform duration-700" data-alt="Sophisticated digital dashboard with multiple data streams, nodes connecting via fiber optic lines in a sleek dark theme" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCikkgUN036cXHtcdimL2oQHHtnLKUCeqTrnYMT-nNtWWqPqVL3W1yhjaHNTZlLwDg-qFl1zH_WQz26_ABYoH9VAXKrQogQMIKBnf3zjAZwYZMH9ms6ezkco06rBTu3bzxa_lZ0TAk6dUzSHAAshTT2FtBngWqe_sOggVMmzpwo5BY8P4vDyjZTFLdCQceV6wGK1vGkBApRiUIbMiuJlpsDmqfuShwd2vokRZcrFrwQZaHFmq6Od5VdiZAhW0Foax15y6aqRUTfRYQ7"/>
+</div>
+</div>
+</div>
+</section>
+<!-- Interactive Voice AI Calling Demo Section -->
+<section class="px-8 py-24 bg-surface-container-low relative overflow-hidden" id="demo">
+<div class="max-w-screen-2xl mx-auto flex flex-col lg:flex-row gap-16 items-center">
+<div class="flex-1">
+<h2 class="font-headline text-5xl font-bold tracking-tight mb-8">Experience <span class="gradient-text">shiftToAI</span></h2>
+<p class="text-on-surface-variant text-xl leading-relaxed mb-10">
+                        Interact with our flagship agent in real-time. Witness the future of Voice AI Calling with zero-latency response and perfect emotional intelligence.
+                    </p>
+<div class="space-y-6">
+<div class="flex items-start gap-4 p-6 glass-panel rounded-lg border border-primary/10">
+<span class="material-symbols-outlined text-primary p-3 bg-primary/10 rounded-full">record_voice_over</span>
+<div>
+<h4 class="font-bold text-lg mb-1">Human-Grade Prosody</h4>
+<p class="text-sm text-on-surface-variant">Intonations and pauses that make it impossible to tell it's an AI.</p>
+</div>
+</div>
+<div class="flex items-start gap-4 p-6 glass-panel rounded-lg border border-secondary/10">
+<span class="material-symbols-outlined text-secondary p-3 bg-secondary/10 rounded-full">language</span>
+<div>
+<h4 class="font-bold text-lg mb-1">On-the-fly Translation</h4>
+<p class="text-sm text-on-surface-variant">Switch between Hindi, English, and Tamil mid-sentence without missing a beat.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Calling Interface UI -->
+<div class="flex-1 w-full max-w-lg bg-[#121620] rounded-[2.5rem] shadow-2xl border border-outline-variant/20 overflow-hidden flex flex-col h-[700px] relative calling-glow">
+<!-- Background decorative shapes -->
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-primary/5 blur-[100px] rounded-full -z-0"></div>
+<!-- App Header -->
+<div class="p-8 flex flex-col items-center z-10">
+<div class="w-full flex justify-between items-center mb-12">
+<span class="material-symbols-outlined text-on-surface-variant">expand_more</span>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-xs text-primary" style="font-variation-settings: 'FILL' 1;">lock</span>
+<span class="text-[10px] uppercase tracking-[0.2em] text-on-surface-variant font-bold">End-to-End Encrypted</span>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant">more_vert</span>
+</div>
+<div class="relative mb-8">
+<div class="absolute inset-0 ring-animation bg-primary/20 rounded-full"></div>
+<div class="absolute inset-0 ring-animation bg-primary/10 rounded-full" style="animation-delay: 1s"></div>
+<div class="w-32 h-32 rounded-full bg-gradient-to-br from-primary to-secondary p-1 relative z-10">
+<div class="w-full h-full rounded-full bg-[#121620] flex items-center justify-center overflow-hidden">
+<img alt="AI Avatar" class="w-full h-full object-cover opacity-80" data-alt="Abstract portrait of a minimalist human bust made of glass and light particles on a dark background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB_SDr_chNNPcjsVLaZBzHF0JTjuoTHw5XZAw_HBqfmZ6FAGJ4x4Ge2xLEJBE_hoq61caKGy3afPI5YvSONYeCC_WHKpbNiGuEmIfpPZgye7uLSB_2wdph79wyrQYns5NsRH2KZ1VL3bdRUiOGBEFDO8R0j9kl6ofYN8ES1qY-Ydpey8YpJLwiP590sqqKhmhBBwWAUIjQz6snOsAwdjv6Ov0kjWot8tKAsox3Iki0bSh5bt_GJhA2PpdB9Wlai__7LYUG-7aZkaR-O"/>
+</div>
+</div>
+</div>
+<h3 class="text-3xl font-headline font-bold text-on-surface mb-2">shiftToAI Aurora</h3>
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+<span class="text-sm font-bold tracking-widest text-primary uppercase">Active Call • 04:12</span>
+</div>
+</div>
+<!-- Waveform Visualizer -->
+<div class="flex-grow flex items-center justify-center px-12 z-10">
+<div class="flex items-center gap-1.5 h-24 w-full justify-between">
+<div class="w-1.5 bg-primary/20 rounded-full h-8 animate-[bounce_1.2s_infinite]"></div>
+<div class="w-1.5 bg-primary/40 rounded-full h-12 animate-[bounce_1.8s_infinite]"></div>
+<div class="w-1.5 bg-primary/60 rounded-full h-16 animate-[bounce_1.1s_infinite]"></div>
+<div class="w-1.5 bg-primary rounded-full h-20 animate-[bounce_1.5s_infinite]"></div>
+<div class="w-1.5 bg-secondary rounded-full h-24 animate-[bounce_1.3s_infinite]"></div>
+<div class="w-1.5 bg-primary rounded-full h-20 animate-[bounce_1.6s_infinite]"></div>
+<div class="w-1.5 bg-primary/60 rounded-full h-16 animate-[bounce_1.2s_infinite]"></div>
+<div class="w-1.5 bg-primary/40 rounded-full h-12 animate-[bounce_1.9s_infinite]"></div>
+<div class="w-1.5 bg-primary/20 rounded-full h-8 animate-[bounce_1.4s_infinite]"></div>
+</div>
+</div>
+<!-- Call Actions Bar -->
+<div class="p-12 pb-16 z-10">
+<div class="flex items-center justify-between">
+<button class="w-16 h-16 rounded-full bg-surface-variant/30 flex items-center justify-center hover:bg-surface-variant transition-colors group">
+<span class="material-symbols-outlined text-on-surface group-active:scale-90 transition-transform">volume_up</span>
+</button>
+<button class="w-16 h-16 rounded-full bg-surface-variant/30 flex items-center justify-center hover:bg-surface-variant transition-colors group">
+<span class="material-symbols-outlined text-on-surface group-active:scale-90 transition-transform">mic_off</span>
+</button>
+<button class="w-16 h-16 rounded-full bg-surface-variant/30 flex items-center justify-center hover:bg-surface-variant transition-colors group">
+<span class="material-symbols-outlined text-on-surface group-active:scale-90 transition-transform">videocam_off</span>
+</button>
+<button class="w-20 h-20 rounded-full bg-error flex items-center justify-center shadow-[0_10px_30px_rgba(255,113,108,0.3)] hover:scale-105 active:scale-95 transition-all">
+<span class="material-symbols-outlined text-white text-3xl">call_end</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Contact Section -->
+<section class="px-8 py-32 max-w-4xl mx-auto" id="contact">
+<div class="text-center mb-16">
+<h2 class="font-headline text-5xl font-black mb-6">Scale Your Voice with shiftToAI</h2>
+<p class="text-on-surface-variant text-lg">Partner with the world's most advanced AI voice agency. Let's build your custom agent.</p>
+</div>
+<div class="glass-panel p-10 md:p-16 rounded-lg border border-outline-variant/10">
+<form class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<div class="space-y-2">
+<label class="text-xs font-bold uppercase tracking-widest text-on-surface-variant">Full Name</label>
+<input class="w-full bg-surface-container-low border-outline-variant/20 rounded-lg p-4 focus:ring-2 focus:ring-primary focus:border-transparent transition-all outline-none" placeholder="John Doe" type="text"/>
+</div>
+<div class="space-y-2">
+<label class="text-xs font-bold uppercase tracking-widest text-on-surface-variant">Email Address</label>
+<input class="w-full bg-surface-container-low border-outline-variant/20 rounded-lg p-4 focus:ring-2 focus:ring-primary focus:border-transparent transition-all outline-none" placeholder="john@company.com" type="email"/>
+</div>
+<div class="md:col-span-2 space-y-2">
+<label class="text-xs font-bold uppercase tracking-widest text-on-surface-variant">Project Scope</label>
+<textarea class="w-full bg-surface-container-low border-outline-variant/20 rounded-lg p-4 focus:ring-2 focus:ring-primary focus:border-transparent transition-all outline-none" placeholder="Tell us about your language requirements and call volume..." rows="4"></textarea>
+</div>
+<div class="md:col-span-2">
+<button class="w-full py-5 rounded-lg bg-gradient-to-r from-primary to-primary-container text-on-primary-container font-black text-lg uppercase tracking-wider hover:opacity-90 active:scale-95 transition-all shadow-xl">
+                            Initialize Consultation
+                        </button>
+</div>
+</form>
+</div>
+<div class="mt-16 flex flex-wrap justify-center gap-12 opacity-50 grayscale hover:grayscale-0 transition-all duration-700">
+<div class="flex items-center gap-2"><span class="material-symbols-outlined">security</span> <span class="font-bold text-sm tracking-widest uppercase">GDPR Compliant</span></div>
+<div class="flex items-center gap-2"><span class="material-symbols-outlined">verified_user</span> <span class="font-bold text-sm tracking-widest uppercase">SOC2 Type II</span></div>
+<div class="flex items-center gap-2"><span class="material-symbols-outlined">language</span> <span class="font-bold text-sm tracking-widest uppercase">Global Edge Nodes</span></div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full border-t border-[#45484f]/15 bg-[#0b0e14]">
+<div class="flex flex-col md:flex-row justify-between items-center px-12 py-10 w-full gap-6 max-w-screen-2xl mx-auto">
+<div class="flex flex-col items-center md:items-start gap-2">
+<div class="text-lg font-bold text-[#00F0FF] italic">shiftToAI</div>
+<p class="font-['Manrope'] text-xs tracking-wide text-on-surface-variant/50">© 2024 shiftToAI. Built for the New Voice Frontier.</p>
+</div>
+<div class="flex gap-8 flex-wrap justify-center">
+<a class="font-['Manrope'] text-xs tracking-wide text-on-surface-variant/50 hover:text-[#00F0FF] transition-colors" href="#">Privacy Policy</a>
+<a class="font-['Manrope'] text-xs tracking-wide text-on-surface-variant/50 hover:text-[#00F0FF] transition-colors" href="#">Terms of Service</a>
+<a class="font-['Manrope'] text-xs tracking-wide text-on-surface-variant/50 hover:text-[#00F0FF] transition-colors" href="#">Security Compliance</a>
+<a class="font-['Manrope'] text-xs tracking-wide text-on-surface-variant/50 hover:text-[#00F0FF] transition-colors" href="#">Hinglish Support</a>
+</div>
+<div class="flex gap-4">
+<a class="p-2 rounded-full border border-outline-variant/10 text-on-surface-variant hover:text-primary transition-all" href="#">
+<span class="material-symbols-outlined text-sm">language</span>
+</a>
+<a class="p-2 rounded-full border border-outline-variant/10 text-on-surface-variant hover:text-primary transition-all" href="#">
+<span class="material-symbols-outlined text-sm">share</span>
+</a>
+</div>
+</div>
+<div class="w-full h-1 bg-gradient-to-r from-transparent via-primary/20 to-transparent"></div>
+</footer>
+</body></html>
